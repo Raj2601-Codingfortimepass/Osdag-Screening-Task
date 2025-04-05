@@ -33,7 +33,6 @@ def analyze_beam(L, t1, t2, x):
     print(f"Maximum Bending Moment at A (BM_max): {BM_max:.2f} kNm at {L - x:.3f} m from support A.")
     print("\n" + "_"*30)
 
-# Example usage
 if __name__ == "__main__":
 print("Enter Beam and Load Parameters:\n")
 l = float(input("Length of the beam L (in metres): "))
