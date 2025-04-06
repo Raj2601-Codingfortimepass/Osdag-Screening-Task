@@ -26,7 +26,7 @@ def analyze_beam(L, t1, t2, x):
 Using the piece wise function for shear force generated and the functions imported, 
 finding out the maximum value of shear force as well as the corresponding location of W1 from A.
 """
-    result = minimize_scalar(neg_abs_SF, bounds=(0, L - x), method='bounded')
+    result = minimize_scalar(neg_abs_sf, bounds=(0, L - x), method='bounded')
     a_max = result.x
     SF_max = abs(sf_01(a_max))
 #The maximum bending moment at support A occurs when a is maximum, i.e. (L-x).
