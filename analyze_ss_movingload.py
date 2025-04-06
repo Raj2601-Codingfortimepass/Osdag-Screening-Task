@@ -38,6 +38,13 @@ if __name__ == "__main__":
     W1 = float(input("Value of moving load W1 (in kN): "))
     W2 = float(input("Value of moving load W2 (in kN): "))
     X = float(input("Distance x between W1 and W2 (in metres): "))
+    while X < -l or X > l:
+     X = float(input(f"Distance x between W1 and W2 (in metres, between {-l} and {l}): "))
+     if X < -l or X > l:
+        print(f"Please enter a value between {-l} and {l}.")
     print("_"*30)
     print("\n")
-    analyze_beam(l, W1, W2, X)
+    if (X>=0):
+     analyze_beam(l, W1, W2, X)
+    else:
+     analyze_beam(l, W2, W1, -X)
