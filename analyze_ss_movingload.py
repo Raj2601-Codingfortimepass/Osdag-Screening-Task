@@ -41,6 +41,7 @@ if __name__ == "__main__":
      X = float(input(f"Distance x between W1 and W2 (in metres, between {-l} and {l}): "))
      if X < -l or X > l:
         print(f"Please enter a value between {-l} and {l}.")
+    print("\n")
     print("_"*30)
     print("\n")
     if (X>=0):
