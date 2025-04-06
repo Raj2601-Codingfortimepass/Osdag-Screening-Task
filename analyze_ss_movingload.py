@@ -27,8 +27,8 @@ def analyze_beam(L, t1, t2, x):
     print(f"Maximum Reaction at B : {RB_max:.3f} kN")
     print(f"Shear Force at (0.5)L (SF_01) when the leftmost weight is at A: {SF_at_0:.3f} kN")  
     print(f"Bending Moment at A (BM_01) when the leftmost weight is at A: {BM_01:.3f} kNm")
-    print(f"Maximum Shear Force at (0.5)L (SF_max): {SF_max:.2f} kN when the leftmost weight is at {a_max:.3f} m from support A.")
-    print(f"Maximum Bending Moment at A (BM_max): {BM_max:.2f} kNm when the leftmost weight is at {L - x:.3f} m from support A.")
+    print(f"Maximum Shear Force at (0.5)L (SF_max): {SF_max:.3f} kN when the leftmost weight is at {a_max:.3f} m from support A.")
+    print(f"Maximum Bending Moment at A (BM_max): {BM_max:.3f} kNm when the leftmost weight is at {L - x:.3f} m from support A.")
     print("\n" + "_"*30)
 
 if __name__ == "__main__":
