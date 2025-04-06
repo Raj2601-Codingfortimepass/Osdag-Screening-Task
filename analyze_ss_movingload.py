@@ -60,7 +60,7 @@ if __name__ == "__main__":
 Negative value of x suggests that the load shown as W1 is actually present after W2 when seen from support A. 
 Thus for the analysis we can simply switch W1 with W2 and take the absolute value of x entered.
 """
-    if (X>=0):
+if (X>=0):
      analyze_beam(l, W1, W2, X)
-    else:
+else:
      analyze_beam(l, W2, W1, -X)
