@@ -15,8 +15,7 @@ def analyze_beam(L, t1, t2, x):
 
     RA_max = t1 + t2 - (t2 * x) / L
     RB_max = t1 + t2 - (t1 * x) / L
-    # Change the variable name to avoid overwriting the function
-    SF_at_0 = SF_01(0)  # Store the shear force at a=0 in a different variable
+    SF_at_0 = SF_01(0) 
     BM_01 = -t2 * x
     result = minimize_scalar(neg_abs_SF, bounds=(0, L - x), method='bounded')
     a_max = result.x
