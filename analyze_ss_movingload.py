@@ -131,11 +131,52 @@ def analyze_beam(L, t1, t2, x):
     plt.tight_layout()
     plt.show()
 
+#Having test cases to visualize edge conditions
+def Test_Cases():
+    test_cases = [
+        {"label": "Standard Case", "L": 10, "W1": 20, "W2": 30, "X": 2},
+        {"label": "Equal Loads", "L": 12, "W1": 25, "W2": 25, "X": 4},
+        {"label": "Load Reversal (X negative)", "L": 10, "W1": 40, "W2": 10, "X": -3},
+        {"label": "Loads Far Apart", "L": 15, "W1": 30, "W2": 20, "X": 14},
+        {"label": "Loads Very Close", "L": 10, "W1": 10, "W2": 15, "X": 0.01},
+        {"label": "Single Load (W1=0)", "L": 8, "W1": 0, "W2": 25, "X": 2},
+        {"label": "Single Load Case 2(W2=0)", "L": 8, "W1": 25, "W2": 0, "X": 2},
+        {"label": "X equals L", "L": 10, "W1": 10, "W2": 15, "X": 10},
+        {"label": "X equals 0", "L": 10, "W1": 25, "W2": 25, "X": 0}
+    ]
+
+#Letting the cases get executed in a loop
+    for case in test_cases:
+        print(f"\nRunning Test: {case['label']}")
+        print(f"Inputs Considered: L = {case['L']}, W1 = {case['W1']}, W2 = {case['W2']}, X = {case['X']}")
+        print("_" * 30)
+
+        L = case['L']
+        W1 = case['W1']
+        W2 = case['W2']
+        X = case['X']
+
+#Handling negative X as per the original logic
+        if X >= 0:
+            analyze_beam(L, W1, W2, X)
+        else:
+            analyze_beam(L, W2, W1, -X)
+
 #Main function
 if __name__ == "__main__":
+#Prompting user if he/she wishes to see the test cases 
+    choice = int(input("Enter 1 if you wish to see the test cases before proceeding to input parameters."))
+    if choice == 1:
+      Test_Cases()
+      
 #Taking inputs from the user.
     print("Enter Beam and Load Parameters:\n")
     l = float(input("Length of the beam L (in metres): "))
+#Ensuring that length the beam is more than 0.
+    while l <= 0:
+     l = float(input(f"Length of the beam (in metres, and greater than 0): "))
+     if l <= 0:
+        print(f"Please enter a value greater than 0.")    
     W1 = float(input("Value of one moving load (in kN): "))
     W2 = float(input("Value of the other moving load (in kN): "))
     X = float(input("Distance x between the loads(in metres): "))
